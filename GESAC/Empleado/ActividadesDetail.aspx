@@ -23,8 +23,7 @@
     </p>
     <asp:FormView ID="FormView1" runat="server" CellPadding="4" 
         DataKeyNames="IdActividad" DataSourceID="SqlDSActividades" 
-        ForeColor="#333333" onload="FormView1_Load" 
-        oniteminserted="FormView1_ItemInserted">
+        ForeColor="#333333" >
         <EditItemTemplate>
             <table style="width:551px">
                 <tr>
@@ -47,16 +46,12 @@
                             TargetControlID="FechaVencimientoTextBox">
                         </asp:MaskedEditExtender>
                         <asp:CalendarExtender ID="FechaVencimientoTextBox_CalendarExtender" 
-                            runat="server" TargetControlID="FechaVencimientoTextBox" 
-                            Format="dd/MM/yyyy HH:mm">
+                            runat="server" TargetControlID="FechaVencimientoTextBox">
                         </asp:CalendarExtender>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" 
                             ControlToValidate="FechaVencimientoTextBox" CssClass="failureNotification" 
                             ErrorMessage="Fecha incorrecta" 
-                            
-                            
                             ValidationExpression="^(?:(?:0?[1-9]|1\d|2[0-8])(\/|-)(?:0?[1-9]|1[0-2]))(\/|-)(?:[1-9]\d\d\d|\d[1-9]\d\d|\d\d[1-9]\d|\d\d\d[1-9])$|^(?:(?:31(\/|-)(?:0?[13578]|1[02]))|(?:(?:29|30)(\/|-)(?:0?[1,3-9]|1[0-2])))(\/|-)(?:[1-9]\d\d\d|\d[1-9]\d\d|\d\d[1-9]\d|\d\d\d[1-9])$|^(29(\/|-)0?2)(\/|-)(?:(?:0[48]00|[13579][26]00|[2468][048]00)|(?:\d\d)?(?:0[48]|[2468][048]|[13579][26]))$"></asp:RegularExpressionValidator>
-                            <%--^(?:(?:0?[1-9]|1\d|2[0-8])(\/|-)(?:0?[1-9]|1[0-2]))(\/|-)(?:[1-9]\d\d\d|\d[1-9]\d\d|\d\d[1-9]\d|\d\d\d[1-9])\W(([1-9]{1})|([0-1][0-9])|([1-2][0-3])):([0-5][0-9])$--%>
                     </td>
                 </tr>
                 <tr>
@@ -200,8 +195,6 @@
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
                             ControlToValidate="FechaVencimientoTextBox" CssClass="failureNotification" 
                             ErrorMessage="Fecha incorrecta" 
-                            
-                            
                             ValidationExpression="^(?:(?:0?[1-9]|1\d|2[0-8])(\/|-)(?:0?[1-9]|1[0-2]))(\/|-)(?:[1-9]\d\d\d|\d[1-9]\d\d|\d\d[1-9]\d|\d\d\d[1-9])$|^(?:(?:31(\/|-)(?:0?[13578]|1[02]))|(?:(?:29|30)(\/|-)(?:0?[1,3-9]|1[0-2])))(\/|-)(?:[1-9]\d\d\d|\d[1-9]\d\d|\d\d[1-9]\d|\d\d\d[1-9])$|^(29(\/|-)0?2)(\/|-)(?:(?:0[48]00|[13579][26]00|[2468][048]00)|(?:\d\d)?(?:0[48]|[2468][048]|[13579][26]))$"></asp:RegularExpressionValidator>
                     </td>
                 </tr>

@@ -31,6 +31,14 @@
 
     <siteMapNode title="Reportes" description="Reportes" roles="Administrador,Empleado,Cliente" >
       <siteMapNode title="Expedientes" description="Expedientes" url="~/Cliente/ExpedientesCSummary.aspx" roles="Administrador,Cliente" />
+      <siteMapNode title="Actividades del día" description="Actividades del día" url="~/Reportes/CRViewer.aspx?rpt=1" roles="Administrador,Empleado" />
+      <siteMapNode title="Actividades por abogado" description="Actividades por abogado" url="~/Reportes/CRViewer.aspx?rpt=2" roles="Administrador,Empleado" />
+      <siteMapNode title="Actividades por titular" description="Actividades por titular" url="~/Reportes/CRViewer.aspx?rpt=3" roles="Administrador,Empleado" />
+      <siteMapNode title="Audiencias y términos" description="Audiencias y términos" url="~/Reportes/CRViewer.aspx?rpt=4" roles="Administrador,Empleado" />
+      <siteMapNode title="Historial expediente" description="Historial expediente" url="~/Reportes/CRViewer.aspx?rpt=5" roles="Administrador,Empleado" />
+      <siteMapNode title="Notificaciones" description="Notificaciones" url="~/Reportes/CRViewer.aspx?rpt=6" roles="Administrador,Empleado" />
+      <!--<siteMapNode title="Revisiones" description="Revisiones" url="~/Reportes/CRViewer.aspx?rpt=7" roles="Administrador,Empleado" />
+      <siteMapNode title="Total actividades" description="Total actividades" url="~/Reportes/CRViewer.aspx?rpt=8" roles="Administrador,Empleado" />-->
     </siteMapNode>
     
   </siteMapNode>
