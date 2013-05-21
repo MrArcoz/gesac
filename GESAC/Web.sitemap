@@ -37,8 +37,8 @@
       <siteMapNode title="Audiencias y términos" description="Audiencias y términos" url="~/Reportes/CRViewer.aspx?rpt=4" roles="Administrador,Empleado" />
       <siteMapNode title="Historial expediente" description="Historial expediente" url="~/Reportes/CRViewer.aspx?rpt=5" roles="Administrador,Empleado" />
       <siteMapNode title="Notificaciones" description="Notificaciones" url="~/Reportes/CRViewer.aspx?rpt=6" roles="Administrador,Empleado" />
-      <!--<siteMapNode title="Revisiones" description="Revisiones" url="~/Reportes/CRViewer.aspx?rpt=7" roles="Administrador,Empleado" />
-      <siteMapNode title="Total actividades" description="Total actividades" url="~/Reportes/CRViewer.aspx?rpt=8" roles="Administrador,Empleado" />-->
+      <siteMapNode title="Revisiones" description="Revisiones" url="~/Reportes/CRViewer.aspx?rpt=7" roles="Administrador,Empleado" />
+      <!--<siteMapNode title="Total actividades" description="Total actividades" url="~/Reportes/CRViewer.aspx?rpt=8" roles="Administrador,Empleado" />-->
     </siteMapNode>
     
   </siteMapNode>

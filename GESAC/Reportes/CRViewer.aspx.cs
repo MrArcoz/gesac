@@ -23,11 +23,14 @@ namespace GESAC.Reportes
                 var ds = new DataSet();
                 ReportDocument reporte = new ReportDocument();
 
-                using (var cmd = new SqlCommand("SELECT * FROM VActividades", cn))
+                if (TipoReporte >= 1 && TipoReporte <= 6)
                 {
-                    using (var da = new SqlDataAdapter(cmd))
+                    using (var cmd = new SqlCommand("SELECT * FROM VActividades", cn))
                     {
-                        da.Fill(ds, "VActividades");
+                        using (var da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(ds, "VActividades");
+                        }
                     }
                 }
 
@@ -57,6 +60,16 @@ namespace GESAC.Reportes
                         break;
                     case 6:
                          reporte = new Reportes.NotificacionesRpt();
+                        break;
+                    case 7:
+                        using (var com = new SqlCommand("SELECT * FROM VRevisiones", cn))
+                        {
+                            using (var ad = new SqlDataAdapter(com))
+                            {
+                                ad.Fill(ds, "VRevisiones");
+                            }
+                        }
+                        reporte = new Reportes.RevisionExpedientes();
                         break;
                 }
                 reporte.SetDataSource(ds);
