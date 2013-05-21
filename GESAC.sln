@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GESAC", "GESAC\GESAC.csproj", "{F7815DEC-3A05-4F6F-B60C-3E0EB292ADA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GESAC.Core", "Core\GESAC.Core.csproj", "{D74C7040-EEFF-4681-978F-E8A17A7EE211}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GESAC.Data", "Data\GESAC.Data.csproj", "{6EC967FA-5704-4C99-9A1F-081CE6B2821C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7815DEC-3A05-4F6F-B60C-3E0EB292ADA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7815DEC-3A05-4F6F-B60C-3E0EB292ADA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7815DEC-3A05-4F6F-B60C-3E0EB292ADA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7815DEC-3A05-4F6F-B60C-3E0EB292ADA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D74C7040-EEFF-4681-978F-E8A17A7EE211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D74C7040-EEFF-4681-978F-E8A17A7EE211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D74C7040-EEFF-4681-978F-E8A17A7EE211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D74C7040-EEFF-4681-978F-E8A17A7EE211}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EC967FA-5704-4C99-9A1F-081CE6B2821C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EC967FA-5704-4C99-9A1F-081CE6B2821C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EC967FA-5704-4C99-9A1F-081CE6B2821C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EC967FA-5704-4C99-9A1F-081CE6B2821C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

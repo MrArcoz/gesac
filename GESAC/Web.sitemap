@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode title="Menú" description="Menú" roles="*">
+    
+    <siteMapNode title="Catálogos" description="Catálogos" roles="Administrador,Empleado" >
+      <siteMapNode title="Clientes" description="Clientes" url="~/Empleado/ClientesSummary.aspx" roles="Administrador,Empleado" />
+      <siteMapNode title="Configuración" description="Configuración" url="~/Empleado/ConfiguracionSummary.aspx" roles="Administrador,Empleado" />
+      <siteMapNode title="Estados" description="Estados" url="~/Empleado/EstadosSummary.aspx" roles="Administrador,Empleado" />
+      <siteMapNode title="Estatus" description="Estatus" url="~/Empleado/EstatusSummary.aspx" roles="Administrador,Empleado" />
+      <siteMapNode title="Juzgados" description="Juzgados" url="~/Empleado/JuzgadosSummary.aspx" roles="Administrador,Empleado" />
+      <siteMapNode title="Materias" description="Materias" url="~/Empleado/MateriasSummary.aspx" roles="Administrador,Empleado" />
+      <siteMapNode title="Permisos" description="Permisos" url="~/Empleado/PermisosSummary.aspx" roles="Administrador,Empleado" />
+      <siteMapNode title="Proyectos" description="Proyectos" url="~/Empleado/ProyectosSummary.aspx" roles="Administrador,Empleado" />
+      <siteMapNode title="Tipos" description="Tipos" url="~/Empleado/TiposSummary.aspx" roles="Administrador,Empleado" />
+      <siteMapNode title="Tipos de Actividad" description="Tipos de Actividad" url="~/Empleado/TiposActividadSummary.aspx" roles="Administrador,Empleado" />
+      <siteMapNode title="Tipos de Persona" description="Tipos de Persona" url="~/Empleado/TiposPersonaSummary.aspx" roles="Administrador,Empleado" />
+      <siteMapNode title="Tipos de Revisión" description="Tipos de Revisión" url="~/Empleado/TiposRevisionSummary.aspx" roles="Administrador,Empleado" />
+      <siteMapNode title="Usuarios" description="Usuarios" url="~/Empleado/UsuariosSummary.aspx" roles="Administrador,Empleado" />
+    </siteMapNode>
+    
+    <siteMapNode title="Operación" description="Operación" roles="Administrador,Empleado" >
+      <siteMapNode title="Expedientes" description="Expedientes" url="~/Empleado/ExpedientesSummary.aspx" roles="Administrador,Empleado" />
+      <siteMapNode title="Actividades" description="Actividades" url="~/Empleado/ActividadesSummary.aspx" roles="Administrador,Empleado" />
+    </siteMapNode>
+
+    <siteMapNode title="Configuración" description="Configuración" roles="Administrador" >
+      <siteMapNode title="Crear Usuario" description="Crear Usuario" url="~/Administrador/Account/Register.aspx" roles="Administrador" />
+      <siteMapNode title="Permisos por Usuario" description="Permisos por Usuario" url="~/Administrador/Permisos/UsuarioSummary.aspx" roles="Administrador" />
+      <siteMapNode title="Permisos por Catálogo" description="Permisos por Catálogo" url="~/Administrador/Permisos/CatalogoSummary.aspx" roles="Administrador" />
+    </siteMapNode>
+
+    <siteMapNode title="Reportes" description="Reportes" roles="Administrador,Empleado,Cliente" >
+      <siteMapNode title="Expedientes" description="Expedientes" url="~/Cliente/ExpedientesCSummary.aspx" roles="Administrador,Cliente" />
+    </siteMapNode>
+    
+  </siteMapNode>
+</siteMap>

@@ -1,0 +1,77 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="GESAC.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<script runat="server">
+    void TreeView_SelectedNodeChanged(object sender, EventArgs e)
+    {
+        ((Label)this.HeadLoginView.FindControl("lblRol")).Text = "";// ((TreeView)sender).SelectedNode.NavigateUrl;
+    }
+</script>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>GESAC - Gestión de Proyectos</h1>
+            </div>
+            <div class="loginDisplay">
+                &nbsp;<asp:LoginView 
+                    ID="HeadLoginView" runat="server" EnableViewState="false" 
+                    ViewStateMode="Enabled" onload="HeadLoginView_Load" >
+                    <AnonymousTemplate>
+                        [ <a href="~/Login.aspx" ID="HeadLoginStatus" runat="server">Iniciar sesión</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        &nbsp;<span class="bold">
+                        <asp:LoginName ID="HeadLoginName" runat="server" /></span>&nbsp;[ 
+                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" 
+                            LogoutText="Cerrar sesión" LogoutPageUrl="~/" 
+                            onloggingout="HeadLoginStatus_LoggingOut" /> ]
+                            <br />
+                            <font size=-1><i><asp:Label ID="lblRol" runat="server" Text="" CssClass="accountInfo" ClientIDMode="Static"></asp:Label></i></font>
+                    </LoggedInTemplate>
+                </asp:LoginView>
+                <br />
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" 
+                    ShowStartingNode="False" />
+            </div>
+        </div>
+        <div class="main">
+        <table class="contenido" border="0" cellpadding=0px cellspacing=0px> 
+        <tr><td class="style1"><asp:ContentPlaceHolder ID="SiteMap" runat="server">
+            <asp:TreeView ID="TreeView" runat="server" DataSourceID="SiteMapDataSource" 
+                ImageSet="Arrows" onselectednodechanged="TreeView_SelectedNodeChanged">
+                <HoverNodeStyle 
+                    Font-Underline="True" ForeColor="#5555DD" />
+                <NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" 
+                    HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />
+                <ParentNodeStyle Font-Bold="False" />
+                <SelectedNodeStyle Font-Underline="True" HorizontalPadding="0px" 
+                    VerticalPadding="0px" ForeColor="#5555DD" />
+            </asp:TreeView>
+            </asp:ContentPlaceHolder>
+            </td>
+            <td class="style2"><asp:ContentPlaceHolder ID="MainContent" runat="server"/></td></tr>
+        </table>
+        </div>
+        <div class="clear" style="text-align:right; padding-right: 20px">
+        NepoSoft, Inc.<br />
+            <br />
+        </div>
+    </div>
+    <div class="footer">
+        </div>
+    </form>
+</body>
+</html>
