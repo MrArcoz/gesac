@@ -441,11 +441,6 @@
     <Compile Include="Reportes\CRViewer.aspx.designer.cs">
       <DependentUpon>CRViewer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Reportes\HistorialExpedienteRpt.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -498,17 +493,6 @@
     <Content Include="Web.sitemap">
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Reportes\DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="Reportes\DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Reportes\DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\GESAC.Core.csproj">
