@@ -109,10 +109,12 @@
     <Content Include="Error.aspx" />
     <Content Include="gestor.ico" />
     <Content Include="Reportes\CRViewer.aspx" />
+    <Content Include="Styles\bellevueBg.gif" />
     <Content Include="Styles\Site.css" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Styles\vintage-pattern-black.gif" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

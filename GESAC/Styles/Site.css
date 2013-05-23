@@ -7,12 +7,11 @@
 .style1
 {
     width: 315px;
-    /*background: #4b6c9e;*/
     vertical-align:top;
 }
 .style2
 {
-    width: 811px;
+    width: auto;
     vertical-align:top;
 } 
 body   
@@ -103,9 +102,9 @@ first child of the left and right table columns */
  
 .page
 {
-    width: 960px;
+    width: auto;
     background-color: #fff;
-    margin: 20px auto 0px auto;
+    margin: 0px auto 0px auto;
     border: 1px solid #496077;
 }
 
@@ -135,7 +134,7 @@ first child of the left and right table columns */
     
     margin: 0px 8px 8px 0px;
     min-height: 420px;
-    width: 958px;
+    width: auto;
 }
 
 .leftCol
@@ -326,5 +325,5 @@ div.accountInfo
 {
     padding: 0px;
     min-height: 420px;
-    width: 958px;
+    width: 100%;
 }

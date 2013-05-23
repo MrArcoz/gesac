@@ -4,6 +4,7 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+<center>
     <h2>
         Iniciar sesión
     </h2>
@@ -50,4 +51,5 @@
         <TitleTextStyle BackColor="#6B696B" Font-Bold="True" ForeColor="#FFFFFF" />
     </asp:Login>
     </div>
+</center>
 </asp:Content>

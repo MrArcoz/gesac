@@ -15,8 +15,17 @@
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 
+    <style type="text/css">
+        .style3
+        {
+            width: 201px;
+    /*background: #4b6c9e;*/
+            vertical-align: top;
+        }
+    </style>
+
 </head>
-<body>
+<body style="background:url(/Styles/bellevueBg.gif)">
     <form runat="server">
     <div class="page">
         <div class="header">
@@ -49,7 +58,7 @@
         </div>
         <div class="main">
         <table class="contenido" border="0" cellpadding=0px cellspacing=0px> 
-        <tr><td class="style1"><asp:ContentPlaceHolder ID="SiteMap" runat="server">
+        <tr><td class="style3"><asp:ContentPlaceHolder ID="SiteMap" runat="server">
             <asp:TreeView ID="TreeView" runat="server" DataSourceID="SiteMapDataSource" 
                 ImageSet="Arrows" onselectednodechanged="TreeView_SelectedNodeChanged">
                 <HoverNodeStyle 
