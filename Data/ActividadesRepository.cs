@@ -25,6 +25,19 @@ namespace GESAC
                                     );
         }
 
+        public DataTable consulta(int expediente)
+        {
+            return bd.executeReader(
+                                    "uspActividades"
+                                    , new SqlParameter("@Opcion", 4)
+                                    , new SqlParameter("@ID", expediente)
+                                    , new SqlParameter("@Usuario", String.Empty)
+                                    , new SqlParameter("@Estatus", String.Empty)
+                                    , new SqlParameter("@FechaIni", String.Empty)
+                                    , new SqlParameter("@FechaFin", String.Empty)
+                                    );
+        }
+
         public void noNotificacion(int expediente, string usuario)
         {
             bd.executeNonQuery(

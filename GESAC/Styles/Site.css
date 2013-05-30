@@ -26,13 +26,15 @@ body
 
 a:link, a:visited
 {
-    color: #034af3;
+    color: #ab7f1a;
+    font-weight:bolder;
 }
 
 a:hover
 {
-    color: #1d60ff;
+    color: #ab7f1a;
     text-decoration: none;
+    font-weight:lighter;
 }
 
 a:active
@@ -103,9 +105,9 @@ first child of the left and right table columns */
 .page
 {
     width: auto;
-    background-color: #fff;
+    background-color: transparent;
     margin: 0px auto 0px auto;
-    border: 1px solid #496077;
+    border: none;
 }
 
 .header
@@ -113,7 +115,7 @@ first child of the left and right table columns */
     position: relative;
     margin: 0px;
     padding: 0px;
-    background: #4b6c9e;
+    background: #D2B48C;
     width: 100%;
 }
 

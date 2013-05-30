@@ -23,6 +23,10 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <ExcludeApp_Data>false</ExcludeApp_Data>
+    <PublishDatabases>false</PublishDatabases>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -42,8 +46,10 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files\Nero\Nero 9\Nero Live\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -72,6 +78,8 @@
     <Content Include="App_Themes\2uparrow.png" />
     <Content Include="App_Themes\downarrow.png" />
     <Content Include="App_Themes\uparrow.png" />
+    <Content Include="Cliente\ActividadesCDetail.aspx" />
+    <Content Include="Cliente\ActividadesCSummary.aspx" />
     <Content Include="Cliente\ExpedientesCDetail.aspx" />
     <Content Include="Cliente\ExpedientesCSummary.aspx" />
     <Content Include="Empleado\ActividadesDetail.aspx" />
@@ -160,6 +168,20 @@
     </Compile>
     <Compile Include="Administrador\Permisos\UsuarioSummary.aspx.designer.cs">
       <DependentUpon>UsuarioSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\ActividadesCDetail.aspx.cs">
+      <DependentUpon>ActividadesCDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\ActividadesCDetail.aspx.designer.cs">
+      <DependentUpon>ActividadesCDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\ActividadesCSummary.aspx.cs">
+      <DependentUpon>ActividadesCSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\ActividadesCSummary.aspx.designer.cs">
+      <DependentUpon>ActividadesCSummary.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente\ExpedientesCDetail.aspx.cs">
       <DependentUpon>ExpedientesCDetail.aspx</DependentUpon>

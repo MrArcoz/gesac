@@ -14,8 +14,7 @@ namespace GESAC.Empleado
         {
             if (Session["Mode"] != null) this.FormView1.ChangeMode(FormViewMode.Insert);
             //UNDONE: GoogleCalendar - FechaVencimiento (Agregar horario)
-            //TODO: Ocupar todo el ancho de la pantalla
-            //TODO: Interfaz de Clientes - listado de expedientes -> listado de Actividades
+            //UNDONE: Asignación de permisos por usuario
         }
     }
 }

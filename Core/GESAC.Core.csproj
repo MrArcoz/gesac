@@ -64,6 +64,7 @@
     <Compile Include="Clientes.cs" />
     <Compile Include="Configuracion.cs" />
     <Compile Include="Contacto.cs" />
+    <Compile Include="gesacMembership.cs" />
     <Compile Include="Participantes.cs" />
     <Compile Include="IActividadesRepository.cs" />
     <Compile Include="IExpedientesRepository.cs" />
