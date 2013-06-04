@@ -12,7 +12,7 @@ namespace GESAC
         readonly DBGESAC bd = new DBGESAC();
         readonly string cadena_cn = System.Configuration.ConfigurationManager.ConnectionStrings["ApplicationServices"].ToString();
 
-        public DataTable consulta(string usuario, string estatus, DateTime inicio, DateTime fin)
+        public DataTable consulta(string usuario, string estatus, DateTime inicio, DateTime fin, int expediente)
         {
             return bd.executeReader(
                                     "uspActividades"
@@ -22,6 +22,7 @@ namespace GESAC
                                     , new SqlParameter("@Estatus", estatus)
                                     , new SqlParameter("@FechaIni", inicio)
                                     , new SqlParameter("@FechaFin", fin)
+                                    , new SqlParameter("@Expediente", expediente)
                                     );
         }
 

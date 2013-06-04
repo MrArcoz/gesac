@@ -20,7 +20,7 @@ namespace GESAC.Empleado
 
         protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Session["Id"] = GridView.Rows[GridView.SelectedIndex].Cells[2].Text;
+            Session["Id"] = GridView.Rows[GridView.SelectedIndex].Cells[3].Text;
             Session["expedientes"] = null;
             Response.Redirect("~/Empleado/ExpedientesDetail.aspx");
         }
@@ -150,10 +150,22 @@ namespace GESAC.Empleado
                 LinkButton lb = (LinkButton)e.CommandSource;
                 int index = Convert.ToInt32(lb.CommandArgument);
                 GridViewRow row = GridView.Rows[index];
-                int expediente = Convert.ToInt32(row.Cells[2].Text);
+                int expediente = Convert.ToInt32(row.Cells[3].Text);
 
                 MembershipUser user = Membership.GetUser(Page.User.Identity.Name);
                 actividad.noNotificacion(expediente, user.ProviderUserKey.ToString());
+            }
+
+            if (e.CommandName == "Historial")
+            {
+                LinkButton lb = (LinkButton)e.CommandSource;
+                int index = Convert.ToInt32(lb.CommandArgument);
+                GridViewRow row = GridView.Rows[index];
+                int expediente = Convert.ToInt32(row.Cells[3].Text);
+
+                Session["IdExp"] = expediente;
+                Session["expedientes"] = null;
+                Response.Redirect("~/Empleado/ActividadesSummary.aspx");
             }
         }
 

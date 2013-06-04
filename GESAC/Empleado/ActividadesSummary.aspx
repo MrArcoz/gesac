@@ -14,6 +14,16 @@
         {
             width: 170px;
         }
+        .style7
+        {
+            width: 80px;
+            height: 15px;
+        }
+        .style8
+        {
+            width: 170px;
+            height: 15px;
+        }
         </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
@@ -26,7 +36,7 @@
         DataValueField="IdStatus" Width="135px" BackColor="#FFFFCC">
     </asp:DropDownList>
     </td>
-    <td rowspan="3" class="style3" style="vertical-align:middle">
+    <td rowspan="5" class="style3" style="vertical-align:middle">
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" 
             CssClass="failureNotification" BackColor="#FFFFCC" BorderColor="#FFCC00" 
             BorderStyle="Dashed" BorderWidth="1px" DisplayMode="List" />
@@ -65,6 +75,15 @@
             ErrorMessage="La fecha fin debe ser mayor a la fecha de inicio" 
             Operator="GreaterThanEqual" Type="Date">*</asp:CompareValidator>
     </td></tr>
+    <%if (Page.User.IsInRole("Administrador"))
+      {%>
+        <tr><td class="style7">USUARIO</td><td class="style8">
+            <asp:TextBox ID="UsuarioTextBox" runat="server" Width="128px" 
+            BackColor="#FFFFCC"></asp:TextBox></td></tr>
+    <%} %>
+    <tr><td class="style5">EXPEDIENTE</td><td class="style6">
+        <asp:TextBox ID="ExpedienteTextBox" runat="server" Width="128px" 
+            BackColor="#FFFFCC"></asp:TextBox></td></tr>
     <tr><td class="style5">
         <asp:ScriptManager ID="ScriptManager" runat="server" 
             EnableScriptGlobalization="True">

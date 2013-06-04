@@ -48,6 +48,12 @@
                 </ItemTemplate>
                 <ControlStyle ForeColor="#333333" />
             </asp:TemplateField>
+            <asp:TemplateField HeaderText="Historial">
+                <ItemTemplate>
+                    <asp:LinkButton ID="his" CommandName="Historial" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" runat="server" CausesValidation="false">Historial</asp:LinkButton>
+                </ItemTemplate>
+                <ControlStyle ForeColor="#333333" />
+            </asp:TemplateField>
         </Columns>
         <EmptyDataTemplate>
             No hay información

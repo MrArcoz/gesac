@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Text.RegularExpressions;
 //using System.Drawing;
 using System.Data;
+using System.Web.Security;
 
 namespace GESAC.Empleado
 {
@@ -17,9 +18,20 @@ namespace GESAC.Empleado
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["Mode"] = null;
-            if (Session["actividades"] != null)
-                lista_actividades = (DataTable)Session["actividades"];
+            if (Session["IdExp"] != null)
+            {
+                this.ExpedienteTextBox.Text = Session["IdExp"].ToString();
+                this.UsuarioTextBox.Text = Membership.GetUser(Page.User.Identity.Name).ToString();
+                this.FechaFinTextBox.Text = DateTime.Today.ToShortDateString();
+                this.FechaInicioTextBox.Text = DateTime.Today.AddYears(-1).ToShortDateString();
+            }
+            else
+            {
+                Session["Mode"] = null;
+                if (Session["actividades"] != null)
+                    lista_actividades = (DataTable)Session["actividades"];
+            }
+            Session["IdExp"] = null;
         }
 
         protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,7 +49,7 @@ namespace GESAC.Empleado
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            Session["actividades"] = actividad.consulta(Page.User.Identity.Name, this.EstatusDropDownList.SelectedValue, Convert.ToDateTime(this.FechaInicioTextBox.Text), Convert.ToDateTime(this.FechaFinTextBox.Text));
+            Session["actividades"] = actividad.consulta(Page.User.IsInRole("Administrador") ? this.UsuarioTextBox.Text.Trim() : Page.User.Identity.Name, this.EstatusDropDownList.SelectedValue, Convert.ToDateTime(this.FechaInicioTextBox.Text), Convert.ToDateTime(this.FechaFinTextBox.Text), String.IsNullOrEmpty(this.ExpedienteTextBox.Text.Trim()) ? -1: Convert.ToInt32(this.ExpedienteTextBox.Text.Trim()));
             lista_actividades = (DataTable)Session["actividades"];
 
             this.GridView.DataSource = lista_actividades;
@@ -157,8 +169,12 @@ namespace GESAC.Empleado
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Cells[3].Text = DateTime.Parse(e.Row.Cells[3].Text).ToShortDateString();
+                e.Row.Cells[10].Text = DateTime.Parse(e.Row.Cells[10].Text).ToShortDateString();
+                e.Row.Cells[11].Text = DateTime.Parse(e.Row.Cells[11].Text).ToShortDateString();
+                e.Row.Cells[12].Text = DateTime.Parse(e.Row.Cells[12].Text).ToShortDateString();
+                e.Row.Cells[13].Text = DateTime.Parse(e.Row.Cells[13].Text).ToShortDateString();
             }
         }
     }
 }
+

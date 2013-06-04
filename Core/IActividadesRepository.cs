@@ -8,7 +8,7 @@ namespace GESAC
 {
     public interface IActividadesRepository
     {
-        DataTable consulta(string usuario, string estatus, DateTime inicio, DateTime fin);
+        DataTable consulta(string usuario, string estatus, DateTime inicio, DateTime fin, int expediente);
         void noNotificacion(int expediente, string usuario);
         IEnumerable<Participantes> participantes(int actividad);
     }
