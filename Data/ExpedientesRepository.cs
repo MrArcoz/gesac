@@ -31,5 +31,15 @@ namespace GESAC
                                     , new SqlParameter("@Cliente", cliente.Trim())
                                     );
         }
+
+        public DataTable get(string expediente)
+        {
+            return bd.executeReader(
+                                   "uspExpedientes"
+                                   , new SqlParameter("@Opcion", 3)
+                                   , new SqlParameter("@NoExpediente", expediente)
+                                   , new SqlParameter("@Cliente", String.Empty)
+                                   );
+        }
     }
 }

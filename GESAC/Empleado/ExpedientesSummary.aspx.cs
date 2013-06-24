@@ -20,7 +20,7 @@ namespace GESAC.Empleado
 
         protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Session["Id"] = GridView.Rows[GridView.SelectedIndex].Cells[3].Text;
+            Session["Id"] = GridView.Rows[GridView.SelectedIndex].Cells[4].Text;
             Session["expedientes"] = null;
             Response.Redirect("~/Empleado/ExpedientesDetail.aspx");
         }
@@ -150,7 +150,7 @@ namespace GESAC.Empleado
                 LinkButton lb = (LinkButton)e.CommandSource;
                 int index = Convert.ToInt32(lb.CommandArgument);
                 GridViewRow row = GridView.Rows[index];
-                int expediente = Convert.ToInt32(row.Cells[3].Text);
+                int expediente = Convert.ToInt32(row.Cells[4].Text);
 
                 MembershipUser user = Membership.GetUser(Page.User.Identity.Name);
                 actividad.noNotificacion(expediente, user.ProviderUserKey.ToString());
@@ -161,11 +161,24 @@ namespace GESAC.Empleado
                 LinkButton lb = (LinkButton)e.CommandSource;
                 int index = Convert.ToInt32(lb.CommandArgument);
                 GridViewRow row = GridView.Rows[index];
-                int expediente = Convert.ToInt32(row.Cells[3].Text);
+                int expediente = Convert.ToInt32(row.Cells[4].Text);
 
                 Session["IdExp"] = expediente;
-                Session["expedientes"] = null;
+                Session["actividades"] = null;
                 Response.Redirect("~/Empleado/ActividadesSummary.aspx");
+            }
+
+            if (e.CommandName == "Actividad")
+            {
+                LinkButton lb = (LinkButton)e.CommandSource;
+                int index = Convert.ToInt32(lb.CommandArgument);
+                GridViewRow row = GridView.Rows[index];
+                int expediente = Convert.ToInt32(row.Cells[4].Text);
+
+                Session["IdExp"] = expediente;
+                Session["actividades"] = null;
+                Session["Mode"] = 1;
+                Response.Redirect("~/Empleado/ActividadesDetail.aspx");
             }
         }
 

@@ -77,9 +77,16 @@
     </td></tr>
     <%if (Page.User.IsInRole("Administrador"))
       {%>
-        <tr><td class="style7">USUARIO</td><td class="style8">
-            <asp:TextBox ID="UsuarioTextBox" runat="server" Width="128px" 
-            BackColor="#FFFFCC"></asp:TextBox></td></tr>
+        <tr>
+            <td class="style7">
+                USUARIO
+            </td>
+            <td class="style8">
+                <asp:DropDownList ID="UsuarioDropDownList" runat="server" 
+                    DataSourceID="SqlDSUsuarios" DataTextField="Comment" 
+                    DataValueField="UserId" Width="135px" BackColor="#FFFFCC"/>
+            </td>
+        </tr>
     <%} %>
     <tr><td class="style5">EXPEDIENTE</td><td class="style6">
         <asp:TextBox ID="ExpedienteTextBox" runat="server" Width="128px" 
@@ -93,10 +100,12 @@
             Text="Buscar" />
         </td><td rowspan="1" class="style3">
             <asp:SqlDataSource ID="SqlDSEstatus" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:ApplicationServices %>" 
-        SelectCommand="SELECT	'TODOS' AS IdStatus, '_Todos' AS Status UNION
-SELECT IdStatus, Status FROM TStatus WHERE (Estatus = 1) ORDER BY Status">
-    </asp:SqlDataSource>
+                ConnectionString="<%$ ConnectionStrings:ApplicationServices %>" 
+                SelectCommand="SELECT 'TODOS' AS IdStatus, '_Todos' AS Status UNION SELECT IdStatus, Status FROM TStatus WHERE (Estatus = 1) ORDER BY Status" />
+
+            <asp:SqlDataSource ID="SqlDSUsuarios" runat="server" 
+                ConnectionString="<%$ ConnectionStrings:ApplicationServices %>" 
+                SelectCommand="SELECT 'TODOS' AS UserId, '_Todos' AS Comment UNION SELECT CONVERT(VARCHAR(MAX), UserId), CONVERT(VARCHAR(MAX), Comment) FROM aspnet_Membership ORDER BY Comment" />
         </td></tr>
 </table>
 </p>   

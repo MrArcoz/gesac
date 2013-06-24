@@ -34,16 +34,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Google.GData.AccessControl">
-      <HintPath>..\..\GmailCalendar\GmailCalendar\bin\Google.GData.AccessControl.DLL</HintPath>
+      <HintPath>bin\Google.GData.AccessControl.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.Calendar">
-      <HintPath>..\..\GmailCalendar\GmailCalendar\bin\Google.GData.Calendar.dll</HintPath>
+      <HintPath>bin\Google.GData.Calendar.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.Client">
-      <HintPath>..\..\GmailCalendar\GmailCalendar\bin\Google.GData.Client.dll</HintPath>
+      <HintPath>bin\Google.GData.Client.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.Extensions">
-      <HintPath>..\..\GmailCalendar\GmailCalendar\bin\Google.GData.Extensions.dll</HintPath>
+      <HintPath>bin\Google.GData.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />

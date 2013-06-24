@@ -10,38 +10,48 @@ namespace GESAC.Account
 {
     public partial class Register : System.Web.UI.Page
     {
+        UsuariosRepository user = new UsuariosRepository();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!Request.IsAuthenticated)
-            //{
-            //    FormsAuthentication.SignOut();
-            //    Session.Abandon();
-            //    Response.Redirect(@"~\Login.aspx");
-            //}
         }
 
         protected void RegisterUser_CreatedUser(object sender, EventArgs e)
         {
-            FormsAuthentication.SetAuthCookie(RegisterUser.UserName, false /* createPersistentCookie */);
-
-            string continueUrl = RegisterUser.ContinueDestinationPageUrl;
-            if (String.IsNullOrEmpty(continueUrl))
-            {
-                continueUrl = "~/";
-            }
-
             try
             {
-                Membership.CreateUser(this.RegisterUser.UserName, this.RegisterUser.Password, this.RegisterUser.Email);
+                TextBox txtNombre = (TextBox)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("Nombre");
+                DropDownList ddlRol = (DropDownList)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("Rol");
+
+                if (!user.CreateUser(this.RegisterUser.UserName, txtNombre.Text, ddlRol.SelectedItem.Value))
+                {
+                    throw new Exception("No se pudo registrar el nombre y el rol.");
+                }
             }
             catch (Exception ex)
             {
-                CustomValidator err = new CustomValidator() { ValidationGroup = "RegisterUserValidationGroup", IsValid = false, ErrorMessage = ex.Message };
-                Page.Validators.Add(err);
-            }
+                Membership.DeleteUser(RegisterUser.UserName, true);
 
-            Response.Redirect(continueUrl);
+                Context.Items.Add("ErrorMessage", ex.Message);
+                Server.Transfer(Request.Url.PathAndQuery, true);
+            }
+        }
+
+        protected void RegisterUser_CreatingUser(object sender, LoginCancelEventArgs e)
+        {
+            if (Context.Items["ErrorMessage"] != null)
+            {
+                CustomValidator custValidator = (CustomValidator)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("CustomValidator");
+                custValidator.ErrorMessage = Context.Items["ErrorMessage"].ToString();
+                custValidator.IsValid = false;
+                custValidator.Visible = false;
+                e.Cancel = true;
+            }
+        }
+
+        protected void ContinueButton_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

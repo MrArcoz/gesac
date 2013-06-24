@@ -18,6 +18,11 @@ namespace GESAC.Empleado
             MembershipUser user = Membership.GetUser(Page.User.Identity.Name);
             if (Session["Mode"] != null) this.FormView1.ChangeMode(FormViewMode.Insert);
             Session["IdUserCaptura"] = user.ProviderUserKey.ToString().ToUpper();
+            if (Session["IdExp"] != null)
+            {
+                DropDownList ddl = FormView1.FindControl("IdExpedienteDropDownList") as DropDownList;
+                ddl.SelectedValue = Session["IdExp"].ToString();
+            }
         }
 
         protected void SqlDSActividades_Inserted(object sender, SqlDataSourceStatusEventArgs e)
@@ -45,6 +50,15 @@ namespace GESAC.Empleado
                 IList<Participantes> Participantes = ar.participantes(IdActividad).ToList();
 
                 gc.addEvent(Lugar, Inicio, Duracion, Asunto, Contenido, Participantes);
+            }
+        }
+
+        protected void FormView1_ItemInserting(object sender, FormViewInsertEventArgs e)
+        {
+            if (e.Values["IdTipo"].Equals("AC"))
+            {
+                e.Values["FechaAcuerdo"] = "01/01/1900";
+                e.Values["FechaPublicacion"] = "01/01/1900";
             }
         }
     }

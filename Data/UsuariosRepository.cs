@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.Security;
 
 namespace GESAC
 {
@@ -61,6 +62,48 @@ namespace GESAC
             }
 
             return operacion_exitosa;
+        }
+
+        public bool CreateUser(string usuario, string nombre, string role)
+        {
+            if (string.IsNullOrEmpty(usuario.Trim()) || string.IsNullOrEmpty(nombre.Trim()) || string.IsNullOrEmpty(role.Trim()))
+                throw new Exception("Datos incompletos. Verificar usuario, nombre y rol.");
+
+            bool resultado = true;
+
+            using (IDatabaseFactory factory = new DatabaseFactory(cadena_cn))
+            {
+                IUnitOfWork unitofwork = new UnitOfWork(factory);
+                unitofwork.Open();
+                unitofwork.BeginTransaction();
+                SqlCommand cmd = factory.Get().CreateCommand();
+                factory.GetTransaction();
+                try
+                {
+                    bd.executeNonQuery
+                        (
+                            "uspUpdateUser"
+                            , new SqlParameter("@UserName", usuario)
+                            , new SqlParameter("@Name", nombre)
+                            , new SqlParameter("@Role", role)
+                        );
+                }
+                catch (Exception ex)
+                {
+                    unitofwork.Rollback();
+                    unitofwork.Close();
+
+                    resultado = false;
+                    throw ex;
+                }
+
+                if (resultado)
+                {
+                    unitofwork.Commit();
+                    unitofwork.Close();
+                }
+            }
+            return resultado;
         }
     }
 }

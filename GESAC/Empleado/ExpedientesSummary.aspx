@@ -33,7 +33,7 @@
     <asp:GridView ID="GridView" runat="server" 
         CellPadding="4" ForeColor="#333333" GridLines="None" 
         onselectedindexchanged="GridView_SelectedIndexChanged" 
-        ShowFooter="True" ShowHeaderWhenEmpty="True" AllowPaging="True" 
+        ShowFooter="True" ShowHeaderWhenEmpty="True" 
         AllowSorting="True" onpageindexchanging="GridView_PageIndexChanging" 
         onrowcreated="GridView_RowCreated" onsorting="GridView_Sorting" 
         onrowcommand="GridView_RowCommand">
@@ -51,6 +51,12 @@
             <asp:TemplateField HeaderText="Historial">
                 <ItemTemplate>
                     <asp:LinkButton ID="his" CommandName="Historial" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" runat="server" CausesValidation="false">Historial</asp:LinkButton>
+                </ItemTemplate>
+                <ControlStyle ForeColor="#333333" />
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Actividad">
+                <ItemTemplate>
+                    <asp:LinkButton ID="act" CommandName="Actividad" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" runat="server" CausesValidation="false">Actividad</asp:LinkButton>
                 </ItemTemplate>
                 <ControlStyle ForeColor="#333333" />
             </asp:TemplateField>

@@ -20,8 +20,9 @@ namespace GESAC.Empleado
         {
             if (Session["IdExp"] != null)
             {
+                MembershipUser user = Membership.GetUser(Page.User.Identity.Name);
                 this.ExpedienteTextBox.Text = Session["IdExp"].ToString();
-                this.UsuarioTextBox.Text = Membership.GetUser(Page.User.Identity.Name).ToString();
+                this.UsuarioDropDownList.SelectedValue = user.ProviderUserKey.ToString().ToUpper();
                 this.FechaFinTextBox.Text = DateTime.Today.ToShortDateString();
                 this.FechaInicioTextBox.Text = DateTime.Today.AddYears(-1).ToShortDateString();
             }
@@ -49,7 +50,8 @@ namespace GESAC.Empleado
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            Session["actividades"] = actividad.consulta(Page.User.IsInRole("Administrador") ? this.UsuarioTextBox.Text.Trim() : Page.User.Identity.Name, this.EstatusDropDownList.SelectedValue, Convert.ToDateTime(this.FechaInicioTextBox.Text), Convert.ToDateTime(this.FechaFinTextBox.Text), String.IsNullOrEmpty(this.ExpedienteTextBox.Text.Trim()) ? -1: Convert.ToInt32(this.ExpedienteTextBox.Text.Trim()));
+            MembershipUser user = Membership.GetUser(Page.User.Identity.Name);
+            Session["actividades"] = actividad.consulta(Page.User.IsInRole("Administrador") ? this.UsuarioDropDownList.SelectedItem.Value.Trim() : user.ProviderUserKey.ToString().ToUpper(), this.EstatusDropDownList.SelectedValue, Convert.ToDateTime(this.FechaInicioTextBox.Text), Convert.ToDateTime(this.FechaFinTextBox.Text), String.IsNullOrEmpty(this.ExpedienteTextBox.Text.Trim()) ? -1 : Convert.ToInt32(this.ExpedienteTextBox.Text.Trim()));
             lista_actividades = (DataTable)Session["actividades"];
 
             this.GridView.DataSource = lista_actividades;
